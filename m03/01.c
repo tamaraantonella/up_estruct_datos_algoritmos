@@ -149,17 +149,15 @@ void show_below_pp_diag(int mat[][5], int n){
 
 
 void is_sim(int mat[][5], int n){
-    int i=0, j, sim=1;
-    while(sim == 1 && i<n){
+    int i, j, cont=0;
+    for(i=0;i<n;i++){
         for(j=0;j<n;j++){
-            if(i!=j && mat[i][j] != mat[j][i]){
-                sim = 0;
+            if(mat[i][j] == mat[j][i]){
+                cont++;
             }
         }
-        i++;
     }
-    
-    if(sim == 1){
+    if(cont == n*n){
         printf("\nEs simetrica.");
     } else {
         printf("\nNo es simetrica");
